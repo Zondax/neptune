@@ -60,6 +60,7 @@ pub enum Error {
     TritonError(String),
     DecodingError,
     IncompleteTree(usize, usize),
+    StillBuildingTree,
     Other(String),
 }
 
@@ -105,6 +106,7 @@ impl fmt::Display for Error {
                 "Missing columns/leaves current: {} - total: {}",
                 current, total
             ),
+            Error::StillBuildingTree => write!(f, "Cannot add data while still building tree."),
             Error::Other(s) => write!(f, "{}", s),
         }
     }
