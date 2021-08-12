@@ -373,7 +373,9 @@ mod tests {
 
         builder.reset();
 
-        let res = builder.add_final_columns(final_columns.as_slice());
-        assert_eq!(Err(Error::IncompleteTree(final_columns.len(), leaves)), res);
+        let res = builder
+            .add_final_columns(final_columns.as_slice())
+            .unwrap_err();
+        assert!(matches!(res, Error::IncompleteTree(_, _)));
     }
 }

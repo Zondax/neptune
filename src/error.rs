@@ -46,7 +46,7 @@ impl fmt::Display for ClError {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone)]
 /// Possible error states for the hashing.
 pub enum Error {
     /// The allowed number of leaves cannot be greater than the arity of the tree.

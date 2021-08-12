@@ -506,8 +506,10 @@ mod tests {
 
             builder.reset();
 
-            let res = builder.add_final_leaves(final_leaves.as_slice());
-            assert_eq!(Err(Error::IncompleteTree(final_leaves.len(), leaves)), res);
+            let res = builder
+                .add_final_leaves(final_leaves.as_slice())
+                .unwrap_err();
+            assert!(matches!(res, Error::IncompleteTree(_, _)));
         }
     }
 }
