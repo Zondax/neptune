@@ -10,7 +10,7 @@ resolver = "2"
 
 [dependencies]
 lazy_static = "1.4.0"
-bellperson = { git = "https://github.com/Zondax/bellperson.git", branch = "scheduler", version = "0.16", default-features = false }
+bellperson = { version = "0.18"}
 blake2s_simd = "0.5"
 blstrs = "0.4.0"
 byteorder = "1"
@@ -22,6 +22,9 @@ itertools = { version = "0.8.0" }
 log = "0.4.8"
 rust-gpu-tools = { version = "0.5.0", default-features = false, optional = true }
 triton = { version = "2.1.0", package = "neptune-triton", default-features = false, features = ["opencl"], optional = true }
+
+[patch.crates-io]
+bellperson = { git = "https://github.com/Zondax/bellperson.git", branch = "scheduler", version = "0.18"}
 
 [dev-dependencies]
 criterion = "0.3"
